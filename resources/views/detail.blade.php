@@ -12,7 +12,11 @@
             <h4> Description : {{$product['description']}} </h4>
             <h4> Category : {{$product['category']}} </h4>
             <br><br>
-            <button class = "btn btn-primary"> ADD to Card</button>
+            <form action="{{ url('addToCart') }}" method="post">
+                @csrf
+                <input type="hidden" name="product_id" value="{{$product['id']}}">
+                <button class = "btn btn-primary"> ADD to Card</button>
+            </form>
             <br><br>
             <button class = "btn btn-success"> Buy Now</button>
         </div>
